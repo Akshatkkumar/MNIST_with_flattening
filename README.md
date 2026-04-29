@@ -50,13 +50,26 @@ To solve this problem, I designed and implemented an **L-shaped block augmentati
 2. clone this repo 
 ```
 git clone https://github.com/Akshatkkumar/MNIST_with_flattening.git
-```
-3. install the necessary requirements 
-```
 cd MNIST_with_flattening
+```
+3. Create a virtual environment(Depends on your OS). 
+
+On Windows
+```
+python -m venv venv
+.\venv\Scripts\activate
+```
+On MacOS/Linux
+```
+python3 -m venv venv
+source venv/bin/activate
+```
+
+4. install the necessary requirements 
+```
 pip install -r requirements.txt
 ```
-4. Run the test code
+5. Run the test code
 ```
 python -m scripts.main
 ```
