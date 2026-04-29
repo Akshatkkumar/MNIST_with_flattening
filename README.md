@@ -9,25 +9,33 @@ This project explores the intersection of **Pure Mathematics** and **Machine Lea
 
 Every flattening algorithm can be visualized with a space-filling curve since you are arranging every given pixel into a traditional array. For example, a traditional flattening algorithm which just stacks rows next to each other becomes a "Z" shaped curve like seen below:
 
-![Z curve](./images/Z_curve.png)
+<p align="center">
+  <img src="./images/Z_curve.png" alt="S curve" width="500">
+</p>
 
 This kind of curve actually destroys many of the spatial relationships our algorithm seeks to learn because it does not preserve **spatial locality**. That is, points that are close together in the image become far apart in the final vector. This motivates us to find a more advanced flattening algorithm.
 
 One simple approach is to change the shape of this curve to an "S", to avoid the discontinuous jumps that happen at the end of a row. 
 
-![S curve](./images/S_curve.png)
+<p align="center">
+  <img src="./images/S_curve.png" alt="S curve" width="500">
+</p>
 
 While this is an improvement, it is not optimal because the points that are in different rows end up far apart even if close together in the original image. 
 
 The most effective option is usually a special mathematical curve known as the **Hilbert curve**. It is a special fractal space-filling curve that is generated using a recursive algorithm that pieces together "U" shaped segments. it looks something like: 
 
-![Hilbert curve](./images/Hilbert_curve.png)
+<p align="center">
+  <img src="./images/Hilbert_curve.png" alt="S curve" width="500">
+</p>
 
 However, there is a critical issue. This curve will not work on the 10x10 example that I gave above for the Z and S curves. The nature of the recursive algorithm mandates that the input image must be of dimension $2^n \times 2^n$. This is rarely the case in the real world, even for MNIST the images are natively 28x28. Trimming and resizing will often reduce the quality of the samples and limit the ability to extract important features
 
 To solve this problem, I designed and implemented an **L-shaped block augmentation** method that allows recursive fractal generation for square images of any integer dimension. This eliminates the need for data-distorting preprocessing steps like trimming or interpolation for datasets comprized of input samples whose dimensions are not a power of two. Here is an example on a 10x10 grid:
 
-![H_L curve](./images/H_L_curve.png)
+<p align="center">
+  <img src="./images/H_L_curve.png" alt="S curve" width="500">
+</p>
 
 ## Key Features
 * **Recursive Fractal Mapping:** Custom coordinate mapping logic in `flatten_lib.py` that generalizes the Hilbert curve properties to arbitrary square dimensions.
