@@ -38,7 +38,7 @@ To solve this problem, I designed and implemented an **L-shaped block augmentati
 </p>
 
 ## Key Features
-* **Recursive Fractal Mapping:** Custom coordinate mapping logic in `flatten_lib.py` that generalizes the Hilbert curve properties to arbitrary square dimensions.
+* **Recursive Fractal Mapping:** Custom coordinate mapping logic in `fractal_flatten.py` that generalizes the Hilbert curve properties to arbitrary square dimensions.
 * **From-Scratch ML Engine:** A Feed-forward Neural Network implemented entirely in **NumPy**, featuring manual backpropagation and linear algebra handling.
 * **Convergence Guaranteed:** Mathematical proof that the recursive dimension reduction function $f(x)$ covers all pixels for an image of any square dimension $n \in \mathbb{N}$. See /docs/proof_of_convergence.pdf for the formal proof of this fact
 * **Optimized Training:** Stochastic Gradient Descent (SGD) with **exponentially decreasing step sizes**.
@@ -83,8 +83,8 @@ python -m scripts.main
 | **Architecture** | Custom Feed-Forward NN with Fractal Flattening Layer |
 
 ## Repository Structure
-* `core/flatten_lib.py`: The fractal-curve generation and coordinate mapping logic.
-* `core/ailib_opt.py`: Neural network architecture, backpropagation, and SGD implementation.
+* `core/fractal_flatten.py`: The fractal-curve generation and coordinate mapping logic.
+* `core/NN_architecture.py`: Neural network architecture, backpropagation, and SGD implementation.
 * `core/train_model.py`: Data loading and preprocessing utilities along with training and saving a new model's parameters in a .npz file
 * `docs/proof_of_convergence.pdf`: Formal mathematical proof of the algorithm's ability to create a mapping for all image sizes.
 
