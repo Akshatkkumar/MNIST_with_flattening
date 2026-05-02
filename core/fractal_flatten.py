@@ -23,39 +23,6 @@ def flatten_s(l):
         c += 1
     return fl
 
-# flatten a (square) array with a space filling Hilbert curve(currently just expands out to a 2^n x 2^n curve and conserves the actual dimensions present)
-# Note to self, rework this into something actually generalized to nxn images
-def flatten_adv(l):
-    # Converts a 1D index 'd' to 2D coordinates (x, y) on a Hilbert curve of size n x n.
-    def d2xy(n, d):
-        t = d
-        x = y = 0
-        s = 1
-        while s < n:
-            rx = 1 & (t // 2)
-            ry = 1 & (t ^ rx)
-            x, y = rot(s, x, y, rx, ry)
-            x += s * rx
-            y += s * ry
-            t //= 4
-            s *= 2
-        return x, y
-
-    # Helper for flipping quadrants
-    def rot(n, x, y, rx, ry):
-        if ry == 0:
-            if rx == 1:
-                x, y = n - 1 - x, n - 1 - y
-            return y, x
-        return x, y
-
-    n = int(2**(np.ceil(np.log(len(l))/np.log(2))))  # Smallest power of 2 for 28x28
-    mapping = [d2xy(n, i) for i in range(n*n)]
-
-    # Filter mapping to only include points within the 28x28 bounds
-    true_mapping = [(x, y) for x, y in mapping if x < len(l) and y < len(l)]
-    return  [l[y][x] for x,y in true_mapping]
-
 # Flatten using a given complete mapping/curve
 # Flattens a given square 2d array with a given mapping dict 
 def flatten_gen(l2d, mapp):
