@@ -278,8 +278,8 @@ def train(X_train, Y_train, X_test, Y_test, batch_s, Wsi, bsi, fs, cf, epochs, l
         Ds.append(D)
     
     if keepbest:
-        Ws, bs = param_L[np.argmax(Ds)]
-        return Ws, bs, Ds[:np.argmax(Ds)]
+        Ws, bs = param_L[np.argmin(Ds)]
+        return Ws, bs, Ds[:np.argmin(Ds)]
     return Ws, bs, Ds
 
 

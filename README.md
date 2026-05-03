@@ -92,7 +92,7 @@ python -m scripts.main
 Despite the compact parameter count, the model demonstrates high spatial awareness due to the distance-preserving nature of the fractal curve:
 * **Accuracy:** 99.3% 
 * **AUC:** 0.9993
-* **Parameter Count:** < 250,000
+* **Parameter Count:** < 400,000
 * **Optimization:** Manual hyperparameter tuning via training cycle observation.
 
 ---
