@@ -42,7 +42,7 @@ To solve this problem, I designed and implemented an **L-shaped block augmentati
 * **From-Scratch ML Engine:** A Feed-forward Neural Network implemented entirely in **NumPy**, featuring manual backpropagation and linear algebra handling.
 * **Convergence Guaranteed:** Mathematical proof that the recursive dimension reduction function $f(x)$ covers all pixels for an image of any square dimension $n \in \mathbb{N}$. See /docs/proof_of_convergence.pdf for the formal proof of this fact
 * **Optimized Training:** Stochastic Gradient Descent (SGD) with **exponentially decreasing step sizes**.
-* **High Efficiency:** Achieved **99.3% test accuracy** and **0.9993 AUC** on MNIST with fewer than **250,000 parameters**.
+* **High Efficiency:** Achieved **99.3% test accuracy** and **0.9993 AUC** on MNIST with fewer than **400,000 parameters**.
 
 ## Getting Started
 
